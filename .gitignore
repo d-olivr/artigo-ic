@@ -1,0 +1,23 @@
+# auxiliares p compilacao do latex
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# pdfs gerados
+*.pdf
+
+# arquivos temporarios do editor
+*~
+*.swp
+.DS_Store
