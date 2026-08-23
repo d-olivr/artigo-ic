@@ -1,4 +1,28 @@
 \section{Métodos}
 
-\lipsum[5-10]
+Esta seção detalha a arquitetura, a infraestrutura e a metodologia adotada para o desenvolvimento do sistema de recomendação acadêmica. O fluxo do projeto é estruturado em três frentes principais: a interface de interação com o discente via chatbot, a extração e o processamento dos dados históricos, e a aplicação do modelo de agrupamento para a geração de recomendações.
+
+\subsection{Interação com o Usuário e Coleta de Dados via Chatbot}
+Como ponto de contato principal com os estudantes, o sistema foi concebido por meio de um assistente virtual (chatbot) integrado à plataforma Telegram. Essa escolha visa garantir alta acessibilidade e facilidade de uso para o corpo discente da UFRRJ. Além de servir como canal para o envio do documento de histórico acadêmico, arquivo fundamental para a extração dos dados brutos de notas, o bot foi desenvolvido para atuar como uma ferramenta completa de suporte acadêmico. 
+
+Dentre suas funcionalidades, a aplicação oferece:
+\begin{itemize}
+    \item \textbf{Consulta de Pré-requisitos:} verificação automatizada das dependências necessárias para cursar determinadas disciplinas;
+    \item \textbf{Dicas e Orientações:} sugestões estratégicas sobre o fluxo do curso;
+    \item \textbf{Acompanhamento do Calendário Acadêmico:} notificações e consultas sobre marcos temporais relevantes do período letivo (como prazos de cadastro de turmas, etapas de pré-matrícula, ajustes de grade, re-matrícula e contagem regressiva para o encerramento do semestre).
+\end{itemize}
+
+\subsection{Processamento do Histórico Acadêmico e Agrupamento com K-Means}
+A partir do momento em que o aluno submete o seu histórico acadêmico através do chatbot, o sistema realiza a leitura e a extração estruturada das notas obtidas em cada disciplina cursada. Esses dados brutos alimentam a etapa de aprendizado de máquina, que emprega o algoritmo não supervisionado K-Means. 
+
+O K-Means opera analisando o vetor de notas do discente e comparando-o com o padrão de desempenho de outros estudantes. O objetivo desta segmentação por agrupamentos (clusters) é identificar semelhanças de trajeto e reconhecer quais disciplinas funcionam como gargalos ou apresentam maiores índices de dificuldade em comum para determinados perfis de alunos, automatizando o mapeamento de vulnerabilidades no fluxo do curso.
+
+\subsection{Sistema de Recomendação de Fluxo Acadêmico}
+No estágio atual de desenvolvimento da ferramenta, o foco metodológico concentra-se no mapeamento e na identificação do perfil discente. A partir dos agrupamentos gerados pelo K-Means, o sistema é capaz de posicionar o estudante em um \emph{cluster} que reflete suas semelhanças de desempenho em relação a pares e históricos anteriores. 
+
+Embora a recomendação automatizada de disciplinas específicas constitua a etapa final da arquitetura proposta, cujo objetivo é cruzar o perfil identificado com o fluxograma do curso para sugerir a melhor combinação de matrículas para o semestre seguinte, esta funcionalidade encontra-se em fase de estruturação. A modelagem atual entrega o diagnóstico analítico do perfil acadêmico, servindo como base sólida para que, nas próximas etapas do projeto, o sistema atue de forma plenamente proativa no suporte à decisão do discente.
+
+
+
+%\lipsum[5-10]
 
