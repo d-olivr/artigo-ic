@@ -2,6 +2,24 @@
 
 Esta seção detalha a arquitetura, a infraestrutura e a metodologia adotada para o desenvolvimento do sistema de recomendação acadêmica. O fluxo do projeto é estruturado em três frentes principais: a interface de interação com o discente via chatbot, a extração e o processamento dos dados históricos, e a aplicação do modelo de agrupamento para a geração de recomendações.
 
+\subsection{Análise da base de dados}
+
+Inicialmente, previu-se a utilização de históricos escolares de discentes do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) como fonte primária de dados, obtidos por meio do Sistema Integrado de Gestão de Atividades Acadêmicas (SIGAA). Contudo, durante a etapa de pré-processamento, identificaram-se inconsistências estruturais decorrentes de falhas na formatação dos arquivos gerados pelo sistema. Dentre as anomalias observadas, destaca-se a atribuição inadequada do valor zero para instâncias de trancamento de disciplina, componentes ainda não cursados até o momento da extração ou reprovações com nota distinta de zero. Tais inconsistências comprometeram a extração e a padronização das variáveis, inviabilizando a aplicação direta dos algoritmos de mineração de dados sobre o conjunto de dados original.
+
+Para contornar essa restrição, solicitou-se formalmente o acesso aos dados institucionais junto à Coordenadoria de Tecnologia da Informação e Comunicação (COTIC) da universidade. Simultaneamente, empregaram-se bases de dados secundárias para a validação preliminar dos algoritmos. Essa abordagem visou verificar a exequibilidade do fluxo de pré-processamento e avaliar o desempenho dos modelos analíticos diante de estruturas acadêmicas padronizadas. Ressalta-se que tais experimentos possuem caráter estritamente metodológico, não devendo os resultados obtidos ser inferidos como representativos da comunidade discente do curso.
+
+\subsection{Análise da viabilidade de LLMs}
+
+A fim de prover uma interface conversacional e personalizada, avaliou-se a incorporação de Grandes Modelos de Linguagem (Large Language Models — LLMs) à arquitetura do tutor inteligente. A integração desses modelos visava permitir uma interação mais natural com os estudantes, apresentando as inferências geradas pelos algoritmos de Mineração de Dados Educacionais de forma contextualizada e adaptada às necessidades de cada discente.
+
+Para tanto, analisaram-se diferentes modelos e serviços de LLM disponibilizados por provedores como OpenAI, Google e Meta, conforme sistematizado na Tabela X. A investigação focou na interoperabilidade dessas ferramentas com a arquitetura proposta, observando sua integração com os dados acadêmicos estruturados e com os algoritmos de aprendizado de máquina empregados no sistema.
+
+A análise de viabilidade técnica e econômica considerou o custo de consumo das APIs, os limites de tokens, a vazão de requisições por unidade de tempo, o suporte a requisições simultâneas e a escalabilidade no atendimento ao público-alvo. Tais fatores revelaram-se críticos diante do escopo de um projeto de iniciação científica desenvolvido sem aporte financeiro específico para a contratação de infraestrutura computacional de alto desempenho ou APIs de modelos proprietários.
+
+Embora alguns provedores ofereçam níveis gratuitos (free tiers), os teto de requisições observados mostraram-se insuficientes para sustentar a demanda de múltiplos acessos simultâneos. Essa restrição comprometeria a disponibilidade e o tempo de resposta do sistema, inviabilizando sua aplicação no curso de Ciência da Computação e sua eventual expansão para demais cursos da universidade.
+
+Diante dessas restrições orçamentárias e operacionais, a incorporação de LLMs à arquitetura atual foi postergada. Optou-se por priorizar o desenvolvimento do tutor inteligente fundamentado estritamente nos algoritmos analíticos e de Mineração de Dados apresentados, mantendo a integração com modelos de linguagem como uma perspectiva de trabalhos futuros, condicionada à alocação de recursos financeiros ou computacionais adequados.
+
 \subsection{Interação com o Usuário e Coleta de Dados via Chatbot}
 Como ponto de contato principal com os estudantes, o sistema foi concebido por meio de um assistente virtual (chatbot) integrado à plataforma Telegram. Essa escolha visa garantir alta acessibilidade e facilidade de uso para o corpo discente da UFRRJ. Além de servir como canal para o envio do documento de histórico acadêmico, arquivo fundamental para a extração dos dados brutos de notas, o bot foi desenvolvido para atuar como uma ferramenta completa de suporte acadêmico. 
 
