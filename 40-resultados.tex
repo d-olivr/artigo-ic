@@ -2,11 +2,20 @@
 
 \subsection{Análise da base de dados}
 
-\subsection{Resultados do classificação}
+\subsection{Resultados da classificação}
 
+Como etapa complementar à análise dos perfis acadêmicos, foi aplicado o algoritmo K-Nearest Neighbors (KNN) para realizar duas formas de classificação dos estudantes. A primeira teve como objetivo classificar os estudantes de acordo com o eixo de formação no qual apresentaram maior desempenho acadêmico. Para esta etapa, foram considerados três eixos associados às disciplinas dos primeiros períodos do curso: Matemática, Programação e Sistemas. A segunda aplicação do KNN teve como objetivo classificar os estudantes de acordo com seu desempenho acadêmico geral, distribuindo-os em quatro faixas de desempenho.
 
+A escolha dos três eixos foi motivada pela maior disponibilidade de dados referentes às disciplinas introdutórias e pela relevância dessas etapas iniciais para a progressão acadêmica dos estudantes. Embora o curso contemple outros eixos de formação ao longo dos períodos subsequentes, estes não foram incorporados à análise nesta etapa devido à menor disponibilidade de amostras, mantendo-se o foco inicialmente nas disciplinas dos primeiros períodos.
 
-\subsection{Resultados da agrupamento}
+Como características de entrada do classificador por eixo, foram utilizadas as notas individuais das disciplinas pertencentes aos três eixos, totalizando onze variáveis: quatro disciplinas de Sistemas, três de Matemática e quatro de Programação. Antes da aplicação do KNN, os dados foram padronizados por meio do método StandardScaler, de modo a colocar as diferentes variáveis em uma escala comparável.
+
+Para cada estudante, foram avalidas as médias das disciplinas pertencentes a cada grupo disciplinar. Dessa forma, cada estudante recebeu uma classe correspondente ao eixo no qual apresentou sua maior média, resultando nas categorias Matemática, Programação ou Sistemas. Para essa classificação, o KNN foi configurado com (k=5), considerando os cinco vizinhos mais próximos para determinar a classe de cada estudante.
+
+Em uma segunda aplicação, o KNN foi utilizado para classificar os estudantes de acordo com seu desempenho acadêmico geral. Para essa classificação, os estudantes foram distribuídos em quatro faixas de desempenho, definidas a partir da média geral: de 0 a 2,5; de 2,5 a 5,0; de 5,0 a 7,5; e de 7,5 a 10,0. Essa classificação permite representar de maneira mais abrangente o desempenho acadêmico do estudante, complementando a identificação do eixo de maior desempenho.
+
+Os resultados permitem avaliar a capacidade do KNN de classificar os estudantes a partir de suas características acadêmicas, tanto em relação ao eixo no qual apresentam maior desempenho quanto em relação ao desempenho geral. A classificação por eixo possibilita identificar as áreas de maior afinidade acadêmica de cada estudante, enquanto a classificação por desempenho geral fornece uma visão mais ampla de sua situação acadêmica. Em conjunto, essas informações podem futuramente ser utilizadas na caracterização dos perfis discentes e, associadas a informações sobre disciplinas pendentes, pré-requisitos e histórico de desempenho, podem apoiar a construção de recomendações personalizadas de trajetória acadêmica.
+\subsection{Resultados do agrupamento}
 
 \subsection{Resultados da predição}
 
