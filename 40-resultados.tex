@@ -1,18 +1,64 @@
 \section{Resultados}
 
-\subsection{Resultados da classificação}
+\subsection{Classificação de perfis acadêmicos}
+\label{sec:resultados_classificacao}
 
-Como etapa complementar à análise dos perfis acadêmicos, aplicou-se o algoritmo K-Nearest Neighbors (KNN) para classificar os estudantes tanto quanto ao eixo de formação de maior desempenho (Matemática, Programação ou Sistemas) quanto quanto à faixa de desempenho acadêmico geral.
+Como etapa complementar à análise dos perfis acadêmicos, aplicou-se o algoritmo 
+\textit{K-Nearest Neighbors} (KNN) para classificar os estudantes tanto quanto ao 
+eixo de formação de maior desempenho (Matemática, Programação ou Sistemas) quanto 
+quanto à faixa de desempenho acadêmico geral.
 
-Os resultados permitem avaliar a capacidade do KNN de classificar os estudantes a partir de suas características acadêmicas, tanto em relação ao eixo no qual apresentam maior desempenho quanto em relação ao desempenho geral. A classificação por eixo possibilita identificar as áreas de maior afinidade acadêmica de cada estudante, enquanto a classificação por desempenho geral fornece uma visão mais ampla de sua situação acadêmica. Em conjunto, essas informações podem futuramente ser utilizadas na caracterização dos perfis discentes e, associadas a informações sobre disciplinas pendentes, pré-requisitos e histórico de desempenho, podem apoiar a construção de recomendações personalizadas de trajetória acadêmica.
+Os resultados permitem avaliar a capacidade do KNN de classificar os estudantes a 
+partir de suas características acadêmicas, tanto em relação ao eixo no qual 
+apresentam maior desempenho quanto em relação ao desempenho geral. A classificação 
+por eixo possibilita identificar as áreas de maior afinidade acadêmica de cada 
+estudante, enquanto a classificação por desempenho geral fornece uma visão mais 
+ampla de sua situação acadêmica. Em conjunto, essas informações podem futuramente 
+ser utilizadas na caracterização dos perfis discentes e, associadas a informações 
+sobre disciplinas pendentes, pré-requisitos e histórico de desempenho, podem apoiar 
+a construção de recomendações personalizadas de trajetória acadêmica.
 
-\subsection{Resultados do agrupamento}
+\subsection{Módulo de recomendação de trajetória acadêmica}
+\label{sec:resultados_algoritmo}
 
-\subsection{Resultados da predição}
+Nesta etapa do trabalho, o esforço concentrou-se na implementação, validação e 
+teste do algoritmo responsável pela geração das recomendações de trajetória 
+acadêmica. Devido às limitações supracitadas no conjunto de dados original, os 
+resultados obtidos até o momento não permitem ainda uma avaliação substantiva em 
+relação aos objetivos do projeto.
 
-\subsection{Resultados do ChatBot} 
-O desenvolvimento do ChatBot resultou em um assistente virtual funcional, integrado à plataforma Telegram, capaz de fornecer aos estudantes informações sobre período letivo, matérias, dependências curriculares e calendário acadêmico, além de possibilitar o envio do histórico escolar para posterior extração dos dados brutos de notas.
+Ainda assim, o algoritmo foi implementado com sucesso e teve seu funcionamento 
+validado por meio de testes com bases de dados alternativas, não vinculadas 
+diretamente ao escopo do projeto. Esses testes tiveram como objetivo verificar a 
+correta execução do \textit{pipeline} de processamento e a capacidade do modelo de 
+gerar previsões consistentes, confirmando a robustez da implementação e sua aptidão 
+para ser aplicada à base de dados definitiva assim que esta estiver disponível em 
+sua totalidade.
 
-Até o momento, o sistema encontra-se em fase inicial, sendo executado manualmente em ambiente local, sem disponibilização em acesso público. Um grupo restrito de estudantes testou o ChatBot e forneceu retornos (\textit{feedbacks}) sobre seu funcionamento, os quais têm sido utilizados para orientar ajustes e refinamentos na ferramenta. De modo geral, os retornos obtidos indicaram boa aceitação da interface, facilidade de uso, e utilidade das respostas fornecidas. Foram pontuadas algumas sugestões de melhorias, como a inclusão de respostas mais detalhadas e a ampliação das funcionalidades oferecidas.
+Dessa forma, os resultados aqui apresentados devem ser interpretados como uma 
+validação técnica e funcional do algoritmo, e não como uma avaliação de desempenho 
+sobre o problema específico do projeto. A obtenção da base de dados completa e a 
+consequente análise dos resultados aplicados ao contexto original ficam definidas 
+como próximas etapas do trabalho (Seção~\ref{sec:trabalhos_futuros}).
 
-Como próxima etapa, planeja-se a implantação do sistema em um servidor da instituição, de modo a permitir sua execução contínua e o acesso por parte de todo o corpo discente interessado.
+\subsection{(ChatBot)}
+\label{sec:resultados_chatbot}
+
+O desenvolvimento do ChatBot resultou em um assistente virtual funcional, 
+integrado à plataforma Telegram, capaz de fornecer aos estudantes informações 
+sobre período letivo, matérias, dependências curriculares e calendário acadêmico, 
+além de possibilitar o envio do histórico escolar para posterior extração dos 
+dados brutos de notas.
+
+Até o momento, o sistema encontra-se em fase inicial, sendo executado manualmente 
+em ambiente local, sem disponibilização em acesso público. Um grupo restrito de 
+estudantes testou o ChatBot e forneceu retornos (\textit{feedbacks}) sobre seu 
+funcionamento, os quais têm sido utilizados para orientar ajustes e refinamentos 
+na ferramenta. De modo geral, os retornos obtidos indicaram boa aceitação da 
+interface, facilidade de uso e utilidade das respostas fornecidas. Foram 
+pontuadas algumas sugestões de melhorias, como a inclusão de respostas mais 
+detalhadas e a ampliação das funcionalidades oferecidas.
+
+Como próxima etapa, planeja-se a implantação do sistema em um servidor da 
+instituição, de modo a permitir sua execução contínua e o acesso por parte de 
+todo o corpo discente interessado.
