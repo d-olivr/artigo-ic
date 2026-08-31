@@ -8,7 +8,20 @@ Inicialmente, previu-se a utilização de históricos escolares de discentes do 
 Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) como fonte primária de dados, reutilizados de um artigo anterior de nossos orientadores
 \cite{zamith2025analise}. Contudo, durante a etapa de pré-processamento, identificaram-se inconsistências estruturais decorrentes de falhas na formatação dos arquivos gerados pelo sistema. Dentre as anomalias observadas, destaca-se a atribuição inadequada do valor zero para instâncias de trancamento de disciplina e componentes ainda não cursados até o momento da extração. Tais inconsistências comprometeram a extração e a padronização das variáveis, inviabilizando a aplicação direta dos algoritmos de mineração de dados sobre o conjunto de dados original.
 
-Para contornar essa restrição, solicitou-se formalmente o acesso aos dados institucionais junto à Coordenadoria de Tecnologia da Informação e Comunicação (COTIC) da universidade. Simultaneamente, empregaram-se bases de dados secundárias para a validação preliminar dos algoritmos. Essa abordagem visou verificar a exequibilidade do fluxo de pré-processamento e avaliar o desempenho dos modelos analíticos diante de estruturas acadêmicas padronizadas. Ressalta-se que tais experimentos possuem caráter estritamente metodológico, não devendo os resultados obtidos ser inferidos como representativos da comunidade discente do curso.
+Para contornar essa restrição, solicitou-se formalmente o acesso aos dados institucionais junto à Coordenadoria de Tecnologia da Informação e Comunicação (COTIC) da universidade. Simultaneamente, empregaram-se duas bases de dados secund\'arias para a
+valida\c{c}\~ao preliminar dos algoritmos. A primeira \'e uma base de
+dados de jogadores de futebol, cuja estrutura tabular -- m\'ultiplas
+vari\'aveis num\'ericas associadas a um indiv\'iduo -- apresenta
+formata\c{c}\~ao semelhante \`a de hist\'oricos escolares, permitindo
+testar a robustez do pipeline de pr\'e-processamento e a aplicabilidade
+do algoritmo de agrupamento independentemente do dom\'inio dos dados.
+A segunda consiste em dados sint\'eticos, gerados a partir de uma
+pequena amostra real de hist\'oricos acad\^emicos, reproduzindo
+estatisticamente as distribui\c{c}\~oes de notas e situa\c{c}\~oes de
+aprova\c{c}\~ao/reprova\c{c}\~ao observadas nos dados originais. Essa
+abordagem visou verificar a exequibilidade do fluxo de
+pr\'e-processamento e avaliar o desempenho dos modelos anal\'iticos
+diante de estruturas de dados padronizadas.
 
 \subsection{Análise da viabilidade de LLMs}
 

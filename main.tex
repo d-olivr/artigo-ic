@@ -7,16 +7,14 @@
 \renewcommand\refname{Referências}
 
 %%% REMOVER ESSE PACOTE PARA A VERSAO FINAL %%%%%%%%%%%%%%%%%
-\usepackage{lipsum}
+%\usepackage{lipsum}
 
 %% Não altere essas informações. Elas serão enviadas aos autores após ao aceite no ato da publicação dos anais.
 
-\copyrightyear{2026}
-\acmYear{2026}
-\setcopyright{sbcpt} %%% Para artigos escritos em inglês, troque para sbcen
-%alterar o nome do evento, data e local do evento para a versão correta
-\acmConference[EduComp'26]{Simpósio Brasileiro de Educação em Computação}{Abril 22-27, 2024}{São Paulo, São Paulo, Brasil (On-line)}
-\acmBooktitle{Simpósio Brasileiro de Educação em Computação (EduComp '24), Abril 22-27, 2024, São Paulo, São Paulo, Brasil (On-line)}
+\settopmatter{printacmref=false} % remove o bloco de referência ACM no rodapé da 1ª página
+\renewcommand\footnotetextcopyrightpermission[1]{} % remove a nota de copyright/licenciamento SBC
+\acmConference{}{}{}
+\acmBooktitle{}
 
 %%% REMOVER A PRÓXIMA LINHA PARA ARTIGOS ESCRITOS EM INGLÊS
 \usepackage[brazil]{babel}
@@ -26,7 +24,7 @@
 \begin{document}
 
 %%% TITULO
-\title[Título curto]{EduComp 2026}
+\title[]{EduComp 2026}
 
 
 %Autores
@@ -54,7 +52,7 @@
 \end{abstract}
 
 %%%% PALAVRAS-CHAVE %%%%%%%%%%%%%%
-\keywords{Knn, K-Means, Naive Bayes, Tutor Inteligente, Inteligência Artificial, Educação, Sistema de Recomendação Acadêmica, Desempenho Acadêmico, Mineração de Dados Educacionais, Otimização de tempo de formação.} % germane load
+\keywords{KNN, K-Means, Tutor Inteligente, Inteligência Artificial, Educação, Sistema de Recomendação Acadêmica, Desempenho Acadêmico, Mineração de Dados Educacionais, Otimização de tempo de formação.} % germane load
 
 %%
 %% This command processes the author and affiliation and title
