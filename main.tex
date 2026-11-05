@@ -19,6 +19,13 @@
 %%% REMOVER A PRÓXIMA LINHA PARA ARTIGOS ESCRITOS EM INGLÊS
 \usepackage[brazil]{babel}
 
+%% Citações no formato autor-ano (Autor, ano), mais próximo do padrão ABNT
+\citestyle{acmauthoryear}
+\setcitestyle{round,aysep={,}}
+
+%% Marca em vermelho trechos que ainda precisam ser completados pelos autores
+\newcommand{\pendente}[1]{\textcolor{red}{[#1]}}
+
 %%%%%%%%%%
 \nocite{*}
 \begin{document}
