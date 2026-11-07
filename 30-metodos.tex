@@ -4,9 +4,9 @@ Esta seção detalha a arquitetura, a infraestrutura e a metodologia adotada par
 
 \subsection{Análise da base de dados}
 
-O projeto previa a utilização de históricos escolares reais de discentes do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) como fonte primária de dados. Entretanto, não foi possível utilizar a base de dados real, devido à dificuldade de acesso aos dados dos alunos, embora esses dados tenham sido formalmente solicitados à Coordenadoria de Tecnologia da Informação e Comunicação (COTIC) da universidade. Além disso, os históricos disponíveis, reutilizados de um trabalho anterior de nossos orientadores \citep{zamith2025evasao}, apresentaram inconsistências de formatação, como a atribuição do valor zero a disciplinas trancadas ou ainda não cursadas, o que impediu seu uso direto.
+O projeto previa a utilização de históricos escolares reais de discentes do curso de Ciência da Computação da Universidade Federal Rural do Rio de Janeiro (UFRRJ) como fonte primária de dados. Entretanto, não foi possível utilizar a base de dados real, devido à dificuldade de acesso aos dados dos alunos, embora esses dados tenham sido formalmente solicitados à Coordenadoria de Tecnologia da Informação e Comunicação (COTIC) da universidade.
 
-Para verificar a viabilidade da execução do projeto, adaptou-se uma base de dados e foram criados dados hipotéticos. A base adaptada é uma base de dados de jogadores de futebol, cuja estrutura tabular -- m\'ultiplas vari\'aveis num\'ericas associadas a um indiv\'iduo -- apresenta formata\c{c}\~ao semelhante \`a de hist\'oricos escolares, permitindo testar o pipeline de pr\'e-processamento e a aplica\c{c}\~ao do algoritmo de agrupamento independentemente do dom\'inio dos dados. Os dados hipot\'eticos foram gerados a partir de uma pequena amostra real de hist\'oricos acad\^emicos, reproduzindo estatisticamente as distribui\c{c}\~oes de notas e situa\c{c}\~oes de aprova\c{c}\~ao/reprova\c{c}\~ao observadas nos dados originais. Ressalta-se que esses experimentos t\^em car\'ater metodol\'ogico e que seus resultados n\~ao representam a comunidade discente do curso.
+Para verificar a viabilidade da execução do projeto, foram criados dados hipotéticos, que permitiram testar o pipeline de pré-processamento e a aplicação dos algoritmos de agrupamento e de classificação. Esses dados foram gerados a partir de uma pequena amostra real de hist\'oricos acad\^emicos, reproduzindo estatisticamente as distribui\c{c}\~oes de notas e situa\c{c}\~oes de aprova\c{c}\~ao/reprova\c{c}\~ao observadas nos dados originais. Ressalta-se que esses experimentos t\^em car\'ater metodol\'ogico e que seus resultados n\~ao representam a comunidade discente do curso.
 
 \subsection{Análise da viabilidade de LLMs}
 
@@ -18,7 +18,7 @@ A análise de viabilidade técnica e econômica considerou o custo de consumo da
 
 Embora alguns provedores ofereçam níveis gratuitos (\textit{free tiers}), os tetos de requisições observados mostraram-se insuficientes para sustentar a demanda de múltiplos acessos simultâneos. Essa restrição comprometeria a disponibilidade e o tempo de resposta do sistema, inviabilizando sua aplicação no curso de Ciência da Computação e sua eventual expansão para demais cursos da universidade.
 
-Diante dessas restrições orçamentárias e operacionais, a incorporação de LLMs à arquitetura atual foi postergada. Optou-se por priorizar o desenvolvimento do tutor inteligente fundamentado estritamente nos algoritmos analíticos e no fornecimento de informações acadêmicas objetivas (como período, matérias, dependências curriculares e calendário acadêmico), mantendo a integração com modelos de linguagem como uma perspectiva de trabalhos futuros, condicionada à alocação de recursos financeiros ou computacionais adequados.
+Diante dessas restrições orçamentárias e operacionais, a incorporação de LLMs à arquitetura atual foi postergada. Optou-se por priorizar o desenvolvimento do tutor inteligente fundamentado estritamente nos algoritmos analíticos e no fornecimento de informações acadêmicas objetivas (como período, matérias, orientações sobre o fluxo do curso e datas importantes do calendário acadêmico), mantendo a integração com modelos de linguagem como uma perspectiva de trabalhos futuros, condicionada à alocação de recursos financeiros ou computacionais adequados.
 
 \subsection{Interação com o Usuário e Coleta de Dados via ChatBot}
 Como ponto de contato principal com os estudantes, o sistema foi concebido como um assistente virtual (ChatBot) integrado à plataforma Telegram via API, escolha motivada pela ampla utilização da ferramenta por parte dos estudantes, pela alta acessibilidade que proporciona e pelo acesso gratuito à sua API, que permite a integração sem custos adicionais. Além de servir como canal para o envio do documento de histórico acadêmico, arquivo fundamental para a extração dos dados brutos de notas, o bot foi desenvolvido para atuar como uma ferramenta completa de suporte acadêmico.
@@ -27,9 +27,8 @@ Além da coleta de dados, o sistema disponibiliza funcionalidades voltadas à co
 
 Dentre suas funcionalidades, a aplicação oferece:
 \begin{itemize} 
-    \item \textbf{Consulta de Pré-requisitos:} verificação automatizada das dependências necessárias para cursar determinadas disciplinas;
     \item \textbf{Dicas e Orientações:} sugestões estratégicas sobre o fluxo do curso;
-    \item \textbf{Acompanhamento do Calendário Acadêmico:} notificações e consultas sobre marcos temporais relevantes do período letivo (como prazos de cadastro de turmas, etapas de pré-matrícula, ajustes de grade, re-matrícula e contagem regressiva para o encerramento do semestre).
+    \item \textbf{Consulta ao Calendário Acadêmico:} consulta às informações do calendário vigente no período letivo, como as datas importantes (prazos de cadastro de turmas, pré-matrícula, ajuste de grade, rematrícula e encerramento do semestre).
 \end{itemize}
 
 \subsection{Processamento do Histórico Acadêmico e Agrupamento com K-Means}
